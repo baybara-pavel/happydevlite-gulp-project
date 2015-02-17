@@ -13,6 +13,7 @@
   "dependencies": {
     "normalize.css": "*",
     "jquery": "2.*",
-    "almond":"*"
+    "almond": "*",
+    "bootstrap": "~3.3.2"
   }
 }
