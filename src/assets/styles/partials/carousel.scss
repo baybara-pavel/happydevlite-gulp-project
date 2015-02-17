@@ -1,30 +1,30 @@
 .background {} .carousel-1 {
     background-position: 85% -100px;
-    background-image: url(img/1.jpg);
+    background-image: url(../images/1.jpg);
 }
 .carousel-2 {
     background-position: 65% -300px;
-    background-image: url(img/2.jpg);
+    background-image: url(../images/2.jpg);
 }
 .carousel-3 {
     background-position: 60% -230px;
-    background-image: url(img/3.jpg);
+    background-image: url(../images/3.jpg);
 }
 .carousel-4 {
     background-position: 80% -250px;
-    background-image: url(img/4.jpg);
+    background-image: url(../images/4.jpg);
 }
 .carousel-5 {
     background-position: 45% -280px;
-    background-image: url(img/5.jpg);
+    background-image: url(../images/5.jpg);
 }
 .carousel-6 {
     background-position: 65% -65px;
-    background-image: url(img/6.jpg);
+    background-image: url(../images/6.jpg);
 }
 .carousel-7 {
     background-position: 92% -166px;
-    background-image: url(img/7.jpg);
+    background-image: url(../images/7.jpg);
 }
 .background {
     position: absolute;
@@ -38,7 +38,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     position: absolute;
-    top: 46px; /*0*/
+    // top: 46px; /*0*/
     left: 0px;
     opacity: 0;
 }
