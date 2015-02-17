@@ -1,6 +1,6 @@
 # 'use strict'
 
-errorCoffee = false
+# errorCoffee = false
 # var $ = require('gulp-load-plugins')();
 browserify = require 'browserify'
 coffee = require 'gulp-coffee'
@@ -32,20 +32,22 @@ path =
     fonts: 'build/fonts/'
   src:
     jade: 'src/templates/pages/*.jade'
-    coffee: 'src/assets/scripts/*.coffee'
+    coffee: './src/assets/scripts/main.coffee'
     style:
       main:'src/assets/styles/main.scss'
       folder: 'src/assets/styles/main.scss'
     img: 'src/assets/images/**/*.*'
     fonts: 'src/assets/fonts/**/*.*'
-    tmp: 'tmp/'
+    tmp:
+      folder: 'tmp/'
+      script: 'tmp/main.js'
   watch:
     jade: 'src/templates/**/*.jade'
     coffee: 'src/assets/scripts/**/*.coffee'
     style: 'src/assets/styles/**/*.scss'
     img: 'src/assets/images/**/*.*'
     fonts: 'src/assets/fonts/**/*.*'
-  clean: './build'
+  clean: './build/'
 
 server = 
   host: 'localhost'
@@ -78,24 +80,43 @@ gulp.task 'coffee:build', ->
       gutil.log(gutil.colors.red(err.name)+ " in plugin '" + gutil.colors.cyan(err.plugin) + "'\n"+ err)
       errorCoffee = true
       this.emit('end');
-    .pipe gulp.dest path.src.tmp
+    .pipe gulp.dest path.src.tmp.folder
 
-gulp.task 'js:build', ['coffee:build'], ->
-  if !errorCoffee
-    rjs
-      baseUrl: path.src.tmp
-      name: '../bower_components/almond/almond'
-      include: ['main']
-      insertReguire: ['main']
-      out: 'all.js'
-      wrap: on
-    # browserify path.src.tmp + 'main.js', {debug: true}
-    # .bundle
-    # .pipe source 'bundle.js'
-    .pipe gulp.dest path.build.js
-    .pipe do connect.reload
+# gulp.task 'js:build', ['coffee:build'], ->
+#   if !errorCoffee
+#     rjs
+#       baseUrl: path.src.tmp
+#       name: '../bower_components/almond/almond'
+#       include: ['main']
+#       insertReguire: ['main']
+#       out: 'all.js'
+#       shim:''
+#       wrap: on
+#     # browserify path.src.tmp + 'main.js', {debug: true}
+#     # .bundle
+#     # .pipe source 'bundle.js'
+#     .pipe gulp.dest path.build.js
+#     .pipe do connect.reload
+    # del path.src.tmp
 
-    del path.src.tmp
+gulp.task 'js:build', ->
+  browserify
+    # shim:
+    #   jquery:
+    #     path: 'bower_components/jquery/dist/jquery.min.js',
+    #     exports: '$'
+    entries: path.src.coffee
+    extensions: ['.coffee','.js']
+  .transform 'coffeeify'
+  .bundle()
+  .on 'error', (err) ->
+      gutil.log(gutil.colors.red(err.name)+ " in plugin '" + gutil.colors.cyan(err.plugin) + "'\n"+ err)
+      errorCoffee = true
+      this.emit('end')
+  .pipe source 'all.js'
+  .pipe gulp.dest path.build.js
+  .pipe do connect.reload
+  # del path.src.tmp.folder
 
 gulp.task 'style:build', ->
   gulp.src path.src.style.main
