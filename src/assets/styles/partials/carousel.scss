@@ -1,0 +1,47 @@
+.background {} .carousel-1 {
+    background-position: 85% -100px;
+    background-image: url(/production/img/1.jpg);
+}
+.carousel-2 {
+    background-position: 65% -300px;
+    background-image: url(/production/img/2.jpg);
+}
+.carousel-3 {
+    background-position: 60% -230px;
+    background-image: url(/production/img/3.jpg);
+}
+.carousel-4 {
+    background-position: 80% -250px;
+    background-image: url(/production/img/4.jpg);
+}
+.carousel-5 {
+    background-position: 45% -280px;
+    background-image: url(/production/img/5.jpg);
+}
+.carousel-6 {
+    background-position: 65% -65px;
+    background-image: url(/production/img/6.jpg);
+}
+.carousel-7 {
+    background-position: 92% -166px;
+    background-image: url(/production/img/7.jpg);
+}
+.background {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+}
+.carousel {
+    width: 100%;
+    /*TODO проверить на больших разрешениях*/
+    height: 1200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 46px; /*0*/
+    left: 0px;
+    opacity: 0;
+}
+.active {
+    opacity: 1.0;
+}

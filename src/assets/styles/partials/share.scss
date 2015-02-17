@@ -1,0 +1,64 @@
+.share {
+/*    text-align: right;*/
+    position: absolute;
+    right: 0px;
+    margin-top: 18px;
+/*    line-height: 43px;*/
+}
+.share p {
+    margin-bottom: 0px;
+    color: #000;
+    font-size: 22px;
+    text-align: center;
+}
+.share a {
+    margin: 0px 7.5px;
+}
+.share img,
+.share div {
+    vertical-align: middle;
+}
+.share a,
+.share div {
+    display: inline-block;
+    text-decoration: none;
+}
+.share .share-logo {
+    display: block;
+    margin-top: 15px;
+}
+.share .logo-vk {
+    width: 40px;
+}
+.share .logo-tw {
+    width: 27px;
+}
+
+.share-hovered {
+    cursor: pointer;
+}
+.tw-counter, 
+.vk-counter {
+    width: 51px;
+    padding-top: 10px;
+}
+
+
+.share-hovered .tw-counter .counter{
+    border-color: #00aeef;
+    color: #00aeef;
+}
+
+.share-hovered .vk-counter .counter {
+    border-color: #45668e;
+    color: #45668e;
+}
+
+.share-counter {
+    position: relative;
+}
+.share-counter img {
+    position: absolute;
+    left: 0;
+    top: 5px;
+}
