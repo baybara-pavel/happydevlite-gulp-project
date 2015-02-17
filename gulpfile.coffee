@@ -3,7 +3,6 @@
 errorCoffee = false
 # var $ = require('gulp-load-plugins')();
 browserify = require 'browserify'
-clean = require 'gulp-clean'
 coffee = require 'gulp-coffee'
 connect = require 'gulp-connect'
 csso = require 'gulp-csso'
@@ -49,9 +48,6 @@ path =
 server = 
   host: 'localhost'
   port: '9000'
-
-gulp.task 'clean', ->
-  rimraf path.src.tmp
 
 gulp.task 'webserver', ->
   connect.server
@@ -109,6 +105,7 @@ gulp.task 'style:build', ->
 
 gulp.task 'image:build', ->
   gulp.src path.src.img
+  .pipe do plumber
   .pipe imagemin
     progressive: true
     svgoPlugins: [ { removeViewBox: false } ]
@@ -119,6 +116,7 @@ gulp.task 'image:build', ->
 
 gulp.task 'fonts:build', ->
   gulp.src path.src.fonts
+  .pipe do plumber
   .pipe gulp.dest path.build.fonts
 
 gulp.task 'build', [
