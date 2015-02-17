@@ -4,24 +4,9 @@ html(lang='en')
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     title HappyDev Lite
+    link(rel="stylesheet", href="styles/main.css")
   body
     .container-fluid
-      .global-conferences-menu
-        .menu-link-container
-          menu.menu-link-left
-            li
-              a(href='http://2012.happydev.ru', target='_blank') Happydev'12
-            li
-              a(href='http://2013.happydev.ru', target='_blank') Happydev'13
-          menu.menu-link-right.social-links
-            li
-              a.social-link.main-menu-vk-link(href='http://vk.com/happydev', target='_blank')  
-            li
-              a.social-link.main-menu-twitter-link(href='http://twitter.com/_happydev', target='_blank')  
-            li
-              a.social-link.main-menu-facebook-link(href='https://www.facebook.com/groups/happydev/', target='_blank')  
-            li
-              a(href='http://timeline.happydev.ru', target='_blank') Блог Happydev
       .background.js-background
         .carousel.carousel-1.js-carousel
         .carousel.carousel-2.js-carousel
@@ -41,30 +26,30 @@ html(lang='en')
                     a.js-share-for-touch.js-tw-hover.js-tw-share.tw-share
                       .share-block.center-block
                         .share-counter
-                          img.js-hide-on-hover(src='img/share-counter.png', alt='')
-                          img.js-show-on-hover.hided(src='img/counter-tw.png', alt='')
+                          img.js-hide-on-hover(src='images/share-counter.png', alt='')
+                          img.js-show-on-hover.hided(src='images/counter-tw.png', alt='')
                           .js-counter-hover.js-tw-counter.tw-counter
                             p.counter &nbsp
                         .share-logo.logo-tw.center-block
-                          img.js-hide-on-hover(src='img/social-tw.png', alt='')
-                          img.js-show-on-hover.hided(src='img/share-tw.png', alt='')
+                          img.js-hide-on-hover(src='images/social-tw.png', alt='')
+                          img.js-show-on-hover.hided(src='images/share-tw.png', alt='')
                     a.js-share-for-touch.js-vk-hover.js-vk-share.vk-share
                       .share-block.center-block
                         .share-counter
-                          img.js-hide-on-hover(src='img/share-counter.png', alt='')
-                          img.js-show-on-hover.hided(src='img/counter-vk.png', alt='')
+                          img.js-hide-on-hover(src='images/share-counter.png', alt='')
+                          img.js-show-on-hover.hided(src='images/counter-vk.png', alt='')
                           .js-counter-hover.js-vk-counter.vk-counter
                             p.counter &nbsp
                         .share-logo.logo-vk.center-block
-                          img.js-hide-on-hover(src='img/social-vk.png', alt='')
-                          img.js-show-on-hover.hided(src='img/share-vk.png', alt='')
+                          img.js-hide-on-hover(src='images/social-vk.png', alt='')
+                          img.js-show-on-hover.hided(src='images/share-vk.png', alt='')
                   //
                     <div class="happy-dev-href pull-right">
                     <a href="http://timeline.happydev.ru/" target="_blank"><img src="" height="32" width="32" alt=""><span>Блог HappyDev-lite</span></a>
                     </div>
                   .logo.text-center
                     a(href='http://happydev-lite.ru/')
-                      img.center-block(src='img/logo.png', alt='HappyDev logo')
+                      img.center-block(src='images/logo.png', alt='HappyDev logo')
                       p.event-title
                         span.happy-dev
                           | Happy
@@ -75,22 +60,22 @@ html(lang='en')
             .row
               .social-container.center-block
                 .js-left-arr.left-arr.pull-left
-                  img(src='img/left-arr.png', alt='')
+                  img(src='images/left-arr.png', alt='')
                 .social-row.center-block
                   .social.center-block
                     a(href='http://vk.com/happydevlite', target='_blank')
-                      img(src='img/social-vk.png', alt='')
+                      img(src='images/social-vk.png', alt='')
                     a(href='http://twitter.com/_happydev', target='_blank')
-                      img(src='img/social-tw.png', alt='')
+                      img(src='images/social-tw.png', alt='')
                     a(href='http://timeline.happydev.ru/', target='_blank')
-                      img(src='img/social-th.png', width='27px', alt='')
+                      img(src='images/social-th.png', width='27px', alt='')
                   .date.text-center
                     p
                       | 13-14 Сентября 2014, О
                       span м
                       | ГУ
                 .js-right-arr.right-arr.pull-right
-                  img(src='img/right-arr.png', alt='')
+                  img(src='images/right-arr.png', alt='')
               .container.email-container
                 .email.text-center
                   p Узнай о регистрации первым!
@@ -108,13 +93,12 @@ html(lang='en')
         .white-back
           .container
             .row
-              link(rel='stylesheet', href='css/styles.min.css')
               .talks.col-xs-12
                 #content.headline.col-centred
                   p.text-center Говорят
                 .talks-block.col-xs-12.container
                   .opinion.media.js-opinion.hide
-                    img.photo.media-object(src='img/opinions/sumarokov.jpg', alt='')
+                    img.photo.media-object(src='images/opinions/sumarokov.jpg', alt='')
                     p.name.media-body Павел Сумароков
                     p.position.media-body
                       a.thum-href(href='http://aldigit.com/', target='_blank') Al Digit
@@ -123,7 +107,7 @@ html(lang='en')
                       article
                         | Разработчики ПО решают важные задачи из различных сфер деятельности человека таких, как финансы, медицина, промышленность, коммуникации. Конференция рекомендуется тем, кто хочет больше узнать про нашу профессию. В современном мире быть программистом интересно, престижно и выгодно. Однако, доверие пользователей должно быть оправдано высокой ответственностью, тяжёлым трудом и постоянным самосовершенствованием.
                   .opinion.media.js-opinion.hide
-                    img.photo.media-object(src='img/opinions/tarasenko.jpg', alt='')
+                    img.photo.media-object(src='images/opinions/tarasenko.jpg', alt='')
                     p.name.media-body Анна Тарасенко
                     p.position.media-body
                       a.thum-href(href='http://7bits.ru/', target='_blank') 7bits
@@ -132,7 +116,7 @@ html(lang='en')
                       article
                         | Мы находимся в уникальном месте и в уникальное время. Я мало знаю мест в России, где есть такие возможности для студентов как можно раньше узнать все об индустрии разработки ПО. Огромное количество бесплатных мероприятий, на которых можно познакомиться с компаниями, научиться писать игры и приложения, набраться опыта у высококлассных специалистов. Погрузитесь в ИТ мирового уровня на 2 дня!
                   .opinion.media.js-opinion.hide
-                    img.photo.media-object(src='img/opinions/kuznecov.jpg', alt='')
+                    img.photo.media-object(src='images/opinions/kuznecov.jpg', alt='')
                     p.name.media-body Александр Кузнецов
                     p.position.media-body
                       a.thum-href(href='http://www.adcisolutions.com/', target='_blank') ADCI solutions
@@ -141,7 +125,7 @@ html(lang='en')
                       article
                         | Настоящая, насыщенная, увлеченная жизнь в профессии. Интересные проекты и много новых знаний. Хочешь держать мозг в тонусе и узнать, каково это? Развивайся, будь программистом. IT-мир для тебя, рекомендую!
                   .opinion.media.js-opinion.hide
-                    img.photo.media-object(src='img/opinions/pashkevich.jpg', height='145', width='145', alt='')
+                    img.photo.media-object(src='images/opinions/pashkevich.jpg', height='145', width='145', alt='')
                     p.name.media-body Дмитрий Пашкевич
                     p.position.media-body
                       a.thum-href(href='http://thumbtack.ru/', target='_blank') Тамтэк
@@ -150,7 +134,7 @@ html(lang='en')
                       article
                         | Уважаемые студенты и старшеклассники, интересующиеся программированием и компьютерными технологиями. Я начал программировать в школе, в ВУЗе мое увлечение компьютерами и всем, что с ними связано, только окрепло. В то время, на заре Интернета, было сложно находить ответы на многие вопросы, поэтому хорошая книга и опытный наставник ценились на вес золота. Теперь у нас есть Интернет! Но как узнать, какой из ответов - правильный? Как отделить действительно ценный совет от форумного флуда? Цените возможность вживую пообщаться с ведущими специалистами лучших ИТ-компаний города. Время опытных наставников по-прежнему на вес золота :-)
                   .opinion.media.js-opinion.hide
-                    img.photo.media-object(src='img/opinions/gordeev.jpg', width='145', alt='', height='145')
+                    img.photo.media-object(src='images/opinions/gordeev.jpg', width='145', alt='', height='145')
                     p.name.media-body Вячеслав Гордеев
                     p.position.media-body
                       a.thum-href(href='http://www.a2design.ru/', target='_blank') А2 Дизайн
@@ -160,7 +144,7 @@ html(lang='en')
                         | Вокруг айти-сферы крутится всё, программист — это одна, если не самая-самая перспективная профессия, и это отнюдь не преувеличение.
                         | Так что успейте прыгнуть на этот поезд, который, при большом количестве работы, мотивации и желания, доставит вас туда, куда вы пожелаете. А пока, необходимо вливаться в технологии, узнавать новое с каждым днём. И данная конференция — отличное место для этого.
                   .opinion.media.js-opinion.hide
-                    img.photo.media-object(src='img/opinions/rodionov.jpg', alt='', height='145')
+                    img.photo.media-object(src='images/opinions/rodionov.jpg', alt='', height='145')
                     p.name.media-body Игорь Родионов
                     p.position.media-body
                       a.thum-href(href='http://sciencescape.org/', target='_blank') ScienceScape inc.
@@ -194,7 +178,7 @@ html(lang='en')
                 p.text-center Организатор
                 .col-xs-12
                   a.col-xs-12(href='http://7bits.ru/ru', target='_blank')
-                    img.center-block.img-responsive(src='img/7bits.png', alt='')
+                    img.center-block.img-responsive(src='images/7bits.png', alt='')
                 .col-xs-12.text-center.contacts
                   p.text-center Звоните, пишите!
                   .col-xs-12.col-sm-6
