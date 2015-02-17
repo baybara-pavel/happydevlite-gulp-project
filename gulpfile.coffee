@@ -33,7 +33,9 @@ path =
   src:
     jade: 'src/templates/pages/*.jade'
     coffee: 'src/assets/scripts/*.coffee'
-    style: 'src/assets/styles/main.scss'
+    style:
+      main:'src/assets/styles/main.scss'
+      folder: 'src/assets/styles/main.scss'
     img: 'src/assets/images/**/*.*'
     fonts: 'src/assets/fonts/**/*.*'
     tmp: 'tmp/'
@@ -48,6 +50,9 @@ path =
 server = 
   host: 'localhost'
   port: '9000'
+
+gulp.task 'clean', ->
+  del path.clean
 
 gulp.task 'webserver', ->
   connect.server
@@ -93,12 +98,14 @@ gulp.task 'js:build', ['coffee:build'], ->
     del path.src.tmp
 
 gulp.task 'style:build', ->
-  gulp.src path.src.style
+  gulp.src path.src.style.main
   .pipe do plumber
   .pipe do sourcemaps.init
-    .pipe do sass
+    .pipe sass
+      sourceComments: 'map'
+      includePaths : [path.src.style.folder]
     .pipe do prefixer
-    .pipe do csso
+    #.pipe do csso
   .pipe do sourcemaps.write
   .pipe gulp.dest path.build.css
   .pipe do connect.reload
@@ -135,6 +142,7 @@ gulp.task 'watch', ->
   gulp.watch path.watch.fonts, ['fonts:build']
 
 gulp.task 'default', [
+  'clean'
   'build'
   'webserver'
   'watch'
