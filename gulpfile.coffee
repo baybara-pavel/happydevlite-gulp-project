@@ -30,6 +30,7 @@ path =
     css: 'build/styles/'
     img: 'build/images/'
     fonts: 'build/fonts/'
+    cogs: 'build/cogs/'
   src:
     jade: 'src/templates/pages/*.jade'
     coffee: './src/assets/scripts/main.coffee'
@@ -38,6 +39,7 @@ path =
       folder: 'src/assets/styles/'
     img: 'src/assets/images/**/*.*'
     fonts: 'src/assets/fonts/**/*.*'
+    cogs: 'src/assets/cogs/**/*.*'
     tmp:
       folder: 'tmp/'
       script: 'tmp/main.js'
@@ -51,7 +53,7 @@ path =
 
 server = 
   host: 'localhost'
-  port: '8000'
+  port: '9000'
 
 gulp.task 'clean', ->
   del path.clean
@@ -130,12 +132,18 @@ gulp.task 'fonts:build', ->
   .pipe do plumber
   .pipe gulp.dest path.build.fonts
 
+gulp.task 'cogs:build', ->
+  gulp.src path.src.cogs
+  .pipe do plumber
+  .pipe gulp.dest path.build.cogs
+
 gulp.task 'build', [
   'clean'
   'jade:build'
   'js:build'
   'style:build'
   'fonts:build'
+  'cogs:build'
   'image:build'
 ]
 
@@ -145,6 +153,7 @@ gulp.task 'watch', ->
   gulp.watch path.watch.coffee, ['js:build']
   gulp.watch path.watch.img, ['image:build']
   gulp.watch path.watch.fonts, ['fonts:build']
+  gulp.watch path.watch.fonts, ['cogs:build']
 
 gulp.task 'default', [
   'build'

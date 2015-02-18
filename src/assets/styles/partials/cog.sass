@@ -1,0 +1,98 @@
+//colorsonn 
+$color_rhino_approx: #185dab
+$color_lavender_purple_approx: #a77dc2
+$color_shakespeare_approx: #4aa8d8
+$color_silver_tree_approx: #56bc8a
+$color_flame_pea_approx: #d95e40
+$white: #fff
+
+.overlay-loader 
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 1000
+  .loader-background 
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background-color: $white
+    transition: background-color .2s 0s linear,right .2s .3s ease-out
+    opacity: 0.99;
+    &.color-flip 
+      animation: color-flip 6.5s .6s infinite linear
+
+
+  .loader-icon 
+    position: absolute
+    top: 50%
+    left: 50%
+    margin: -48px 0 0 -48px
+    font-size: 96px
+    color: #FFF
+    &.spinning-cog 
+      animation: spinning-cog 1.3s infinite ease
+
+    &.shrinking-cog 
+      animation: shrinking-cog .3s 1 ease forwards
+
+
+
+@keyframes color-flip 
+  0% 
+    background-color: $white
+
+  // 18% 
+  //   background-color: $white
+
+  // 20% 
+  //   background-color: $color_lavender_purple_approx
+
+  // 38% 
+  //   background-color: $color_lavender_purple_approx
+
+  // 40% 
+  //   background-color: $color_shakespeare_approx
+
+  // 58% 
+  //   background-color: $color_shakespeare_approx
+
+  // 60% 
+  //   background-color: $color_silver_tree_approx
+
+  // 78% 
+  //   background-color: $color_silver_tree_approx
+
+  // 80% 
+  //   background-color: $color_flame_pea_approx
+
+  // 98% 
+  //   background-color: $color_flame_pea_approx
+
+  100% 
+    background-color: $white
+
+
+@keyframes spinning-cog 
+  0% 
+    transform: rotate(0deg)
+
+  20% 
+    transform: rotate(-45deg)
+
+  100% 
+    transform: rotate(360deg)
+
+
+@keyframes shrinking-cog 
+  0% 
+    transform: scale(1)
+
+  20% 
+    transform: scale(1.2)
+
+  100% 
+    transform: scale(0)

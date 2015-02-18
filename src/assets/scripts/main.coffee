@@ -1,4 +1,6 @@
 $ = require './vendor/jquery.min'
+# pace = require './vendor/pace.min.js'
+cog = require './cog'
 hover = require './hover'
 random = require './random-opinion'
 validation = require './validation'
