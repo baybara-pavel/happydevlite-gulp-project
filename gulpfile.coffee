@@ -1,7 +1,6 @@
-# 'use strict'
+'use strict'
 
-# errorCoffee = false
-# var $ = require('gulp-load-plugins')();
+# var $ = require 'gulp-load-plugins'
 browserify = require 'browserify'
 coffee = require 'gulp-coffee'
 connect = require 'gulp-connect'
@@ -15,13 +14,13 @@ opn = require 'opn'
 plumber = require 'gulp-plumber'
 pngquant = require 'imagemin-pngquant'
 prefixer = require 'gulp-autoprefixer'
-rjs = require 'gulp-requirejs'
 sass = require 'gulp-sass'
 size = require 'gulp-size'
 source = require 'vinyl-source-stream'
 sourcemaps = require 'gulp-sourcemaps'
 uglify = require 'gulp-uglify'
 watch = require 'gulp-watch'
+cssImport = require 'gulp-cssimport'
 
 path = 
   build:
@@ -35,8 +34,8 @@ path =
     jade: 'src/templates/pages/*.jade'
     coffee: './src/assets/scripts/main.coffee'
     style:
-      main:'src/assets/styles/main.sass'
-      folder: 'src/assets/styles/'
+      main:'./src/assets/styles/main.sass'
+      folder: './src/assets/styles/'
     img: 'src/assets/images/**/*.*'
     fonts: 'src/assets/fonts/**/*.*'
     cogs: 'src/assets/cogs/**/*.*'
@@ -69,72 +68,71 @@ gulp.task 'openbrowser', ->
 
 gulp.task 'jade:build', ->
   gulp.src path.src.jade
-  .pipe do plumber
-  .pipe do jade
+  .pipe plumber()
+  .pipe jade()
   .pipe gulp.dest path.build.html
-  .pipe do connect.reload
+  .pipe connect.reload()
 
 gulp.task 'coffee:build', ->
     errorCoffee = false
     gulp.src path.src.coffee
-    .pipe do coffee
+    .pipe coffee()
     .on 'error', (err) ->
       gutil.log(gutil.colors.red(err.name)+ " in plugin '" + gutil.colors.cyan(err.plugin) + "'\n"+ err)
       errorCoffee = true
-      this.emit('end');
+      this.emit 'end'
     .pipe gulp.dest path.src.tmp.folder
 
 gulp.task 'js:build', ->
   browserify
-    # shim:
-    #   jquery:
-    #     path: 'bower_components/jquery/dist/jquery.min.js',
-    #     exports: '$'
+    bundleOptions: 
+      debug: true
     entries: path.src.coffee
     extensions: ['.coffee','.js']
   .transform 'coffeeify'
   .bundle()
   .on 'error', (err) ->
-      gutil.log(gutil.colors.red(err.name)+ " in plugin '" + gutil.colors.cyan(err.plugin) + "'\n"+ err)
+      gutil.log "#{gutil.colors.red(err.name)} in plugin #{gutil.colors.cyan(err.plugin)} \n #{err}"
       errorCoffee = true
-      this.emit('end')
+      this.emit 'end' 
   .pipe source 'all.js'
   .pipe gulp.dest path.build.js
-  .pipe do connect.reload
+  .pipe connect.reload()
 
 gulp.task 'style:build', ->
   gulp.src path.src.style.main
-  .pipe do plumber
-  # .pipe do sourcemaps.init
+  .pipe plumber()
     .pipe sass
       indentedSyntax: true
       sourceComments: 'map'
       includePaths : [path.src.style.folder]
-    .pipe do prefixer
-    #.pipe do csso
-  # .pipe do sourcemaps.write
+    .pipe plumber()
+    .pipe cssImport()
+    .pipe prefixer()
+    # .pipe csso()
   .pipe gulp.dest path.build.css
-  .pipe do connect.reload
+  .pipe gulp.dest path.build.css
+  .pipe connect.reload()
 
 gulp.task 'image:build', ->
   gulp.src path.src.img
-  .pipe do plumber
+  .pipe plumber()
   .pipe imagemin
     progressive: true
     svgoPlugins: [ { removeViewBox: false } ]
     use: [ pngquant() ]
     interlaced: true
   .pipe gulp.dest path.build.img
-  .pipe do connect.reload
+  .pipe connect.reload()
 
 gulp.task 'fonts:build', ->
   gulp.src path.src.fonts
-  .pipe do plumber
+  .pipe plumber()
   .pipe gulp.dest path.build.fonts
 
 gulp.task 'cogs:build', ->
   gulp.src path.src.cogs
-  .pipe do plumber
+  .pipe plumber()
   .pipe gulp.dest path.build.cogs
 
 gulp.task 'build', [

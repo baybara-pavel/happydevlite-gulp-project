@@ -1,4 +1,4 @@
-$ = require './vendor/jquery.min'
+$ = require 'jquery'
 
 email = $('.js-email')
 validationResult = $('.js-validation-result')

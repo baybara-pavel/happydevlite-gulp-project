@@ -1,4 +1,4 @@
-$ = require './vendor/jquery.min'
+$ = require 'jquery'
 # pace = require './vendor/pace.min.js'
 cog = require './cog'
 hover = require './hover'

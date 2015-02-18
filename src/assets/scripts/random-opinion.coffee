@@ -1,4 +1,4 @@
-$ = require './vendor/jquery.min'
+$ = require 'jquery'
 getRandom = (arr, n) ->
   result = new Array(n)
   len = arr.length

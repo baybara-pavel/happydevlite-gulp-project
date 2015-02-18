@@ -1,4 +1,4 @@
-$ = require './vendor/jquery.min'
+$ = require 'jquery'
 hoverOn = (element) ->
   $(element).addClass 'share-hovered'
   $(element).find('.js-hide-on-hover').addClass 'hided'
