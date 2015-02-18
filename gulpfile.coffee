@@ -82,23 +82,6 @@ gulp.task 'coffee:build', ->
       this.emit('end');
     .pipe gulp.dest path.src.tmp.folder
 
-# gulp.task 'js:build', ['coffee:build'], ->
-#   if !errorCoffee
-#     rjs
-#       baseUrl: path.src.tmp
-#       name: '../bower_components/almond/almond'
-#       include: ['main']
-#       insertReguire: ['main']
-#       out: 'all.js'
-#       shim:''
-#       wrap: on
-#     # browserify path.src.tmp + 'main.js', {debug: true}
-#     # .bundle
-#     # .pipe source 'bundle.js'
-#     .pipe gulp.dest path.build.js
-#     .pipe do connect.reload
-    # del path.src.tmp
-
 gulp.task 'js:build', ->
   browserify
     # shim:
@@ -116,18 +99,17 @@ gulp.task 'js:build', ->
   .pipe source 'all.js'
   .pipe gulp.dest path.build.js
   .pipe do connect.reload
-  # del path.src.tmp.folder
 
 gulp.task 'style:build', ->
   gulp.src path.src.style.main
   .pipe do plumber
-  .pipe do sourcemaps.init
+  # .pipe do sourcemaps.init
     .pipe sass
       sourceComments: 'map'
       includePaths : [path.src.style.folder]
     .pipe do prefixer
     #.pipe do csso
-  .pipe do sourcemaps.write
+  # .pipe do sourcemaps.write
   .pipe gulp.dest path.build.css
   .pipe do connect.reload
 
@@ -148,6 +130,7 @@ gulp.task 'fonts:build', ->
   .pipe gulp.dest path.build.fonts
 
 gulp.task 'build', [
+  'clean'
   'jade:build'
   'js:build'
   'style:build'
@@ -163,7 +146,6 @@ gulp.task 'watch', ->
   gulp.watch path.watch.fonts, ['fonts:build']
 
 gulp.task 'default', [
-  'clean'
   'build'
   'webserver'
   'watch'

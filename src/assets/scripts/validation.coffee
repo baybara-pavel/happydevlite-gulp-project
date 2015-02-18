@@ -48,4 +48,3 @@ $(document).on 'click', '.js-submit', ->
     validationResult.addClass textWarning
     email.addClass fildWarning
   return
-return

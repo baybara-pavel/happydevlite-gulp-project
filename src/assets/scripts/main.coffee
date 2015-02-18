@@ -64,4 +64,3 @@ $(document).ready ->
     rotate.on()
   $('.js-carousel.active').ready ->
     rotate.on()
-  return
