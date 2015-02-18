@@ -4,6 +4,7 @@ html(lang='en')
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     title HappyDev Lite
+    link(rel="shortcut icon", href="images/favicon.png")
     link(rel="stylesheet", href="styles/main.css")
   body
     .container-fluid
@@ -19,181 +20,17 @@ html(lang='en')
         .overlay
           .container
             .row
-              .header
-                .row.header-row
-                  .share
-                    // <p>Поделиться</p>
-                    a.js-share-for-touch.js-tw-hover.js-tw-share.tw-share
-                      .share-block.center-block
-                        .share-counter
-                          img.js-hide-on-hover(src='images/share-counter.png', alt='')
-                          img.js-show-on-hover.hided(src='images/counter-tw.png', alt='')
-                          .js-counter-hover.js-tw-counter.tw-counter
-                            p.counter &nbsp
-                        .share-logo.logo-tw.center-block
-                          img.js-hide-on-hover(src='images/social-tw.png', alt='')
-                          img.js-show-on-hover.hided(src='images/share-tw.png', alt='')
-                    a.js-share-for-touch.js-vk-hover.js-vk-share.vk-share
-                      .share-block.center-block
-                        .share-counter
-                          img.js-hide-on-hover(src='images/share-counter.png', alt='')
-                          img.js-show-on-hover.hided(src='images/counter-vk.png', alt='')
-                          .js-counter-hover.js-vk-counter.vk-counter
-                            p.counter &nbsp
-                        .share-logo.logo-vk.center-block
-                          img.js-hide-on-hover(src='images/social-vk.png', alt='')
-                          img.js-show-on-hover.hided(src='images/share-vk.png', alt='')
-                  //
-                    <div class="happy-dev-href pull-right">
-                    <a href="http://timeline.happydev.ru/" target="_blank"><img src="" height="32" width="32" alt=""><span>Блог HappyDev-lite</span></a>
-                    </div>
-                  .logo.text-center
-                    a(href='http://happydev-lite.ru/')
-                      img.center-block(src='images/logo.png', alt='HappyDev logo')
-                      p.event-title
-                        span.happy-dev
-                          | Happy
-                          span Dev
-                        span.lite lite
-                      p.event-description IT-конференция для студентов и школьников
+              include ../blocks/header.jade
           .container-fluid
             .row
-              .social-container.center-block
-                .js-left-arr.left-arr.pull-left
-                  img(src='images/left-arr.png', alt='')
-                .social-row.center-block
-                  .social.center-block
-                    a(href='http://vk.com/happydevlite', target='_blank')
-                      img(src='images/social-vk.png', alt='')
-                    a(href='http://twitter.com/_happydev', target='_blank')
-                      img(src='images/social-tw.png', alt='')
-                    a(href='http://timeline.happydev.ru/', target='_blank')
-                      img(src='images/social-th.png', width='27px', alt='')
-                  .date.text-center
-                    p
-                      | 13-14 Сентября 2014, О
-                      span м
-                      | ГУ
-                .js-right-arr.right-arr.pull-right
-                  img(src='images/right-arr.png', alt='')
-              .container.email-container
-                .email.text-center
-                  p Узнай о регистрации первым!
-                  .email-form.col-xs-10.col-sm-8.col-centred
-                    form.js-form-to-submit
-                      .js-email-group.input-group
-                        input.js-email.form-control(type='text', name='email', value='', placeholder='Оставь свой e-mail')
-                        span.input-group-btn
-                          input.js-submit.btn.btn-primary(type='button', name='submit', value='Отправить')
-                      span.js-validation-result.validation-result.col-xs-12
-                //
-                  <a class="arrow-wrap" href="#content">
-                  <span class="arrow"></span>
-                  </a>
+              include ../blocks/social.jade
+              include ../blocks/email.jade
         .white-back
           .container
             .row
-              .talks.col-xs-12
-                #content.headline.col-centred
-                  p.text-center Говорят
-                .talks-block.col-xs-12.container
-                  .opinion.media.js-opinion.hide
-                    img.photo.media-object(src='images/opinions/sumarokov.jpg', alt='')
-                    p.name Павел Сумароков
-                    p.position
-                      a.thum-href(href='http://aldigit.com/', target='_blank') Al Digit
-                      | , Директор, Омск
-                    .content.media-body
-                      article
-                        | Разработчики ПО решают важные задачи из различных сфер деятельности человека таких, как финансы, медицина, промышленность, коммуникации. Конференция рекомендуется тем, кто хочет больше узнать про нашу профессию. В современном мире быть программистом интересно, престижно и выгодно. Однако, доверие пользователей должно быть оправдано высокой ответственностью, тяжёлым трудом и постоянным самосовершенствованием.
-                  .opinion.media.js-opinion.hide
-                    img.photo.media-object(src='images/opinions/tarasenko.jpg', alt='')
-                    p.name Анна Тарасенко
-                    p.position
-                      a.thum-href(href='http://7bits.ru/', target='_blank') 7bits
-                      | , Директор, Омск
-                    .content.media-body
-                      article
-                        | Мы находимся в уникальном месте и в уникальное время. Я мало знаю мест в России, где есть такие возможности для студентов как можно раньше узнать все об индустрии разработки ПО. Огромное количество бесплатных мероприятий, на которых можно познакомиться с компаниями, научиться писать игры и приложения, набраться опыта у высококлассных специалистов. Погрузитесь в ИТ мирового уровня на 2 дня!
-                  .opinion.media.js-opinion.hide
-                    img.photo.media-object(src='images/opinions/kuznecov.jpg', alt='')
-                    p.name Александр Кузнецов
-                    p.position
-                      a.thum-href(href='http://www.adcisolutions.com/', target='_blank') ADCI solutions
-                      | , Руководитель, Омск
-                    .content.media-body
-                      article
-                        | Настоящая, насыщенная, увлеченная жизнь в профессии. Интересные проекты и много новых знаний. Хочешь держать мозг в тонусе и узнать, каково это? Развивайся, будь программистом. IT-мир для тебя, рекомендую!
-                  .opinion.media.js-opinion.hide
-                    img.photo.media-object(src='images/opinions/pashkevich.jpg', height='145', width='145', alt='')
-                    p.name Дмитрий Пашкевич
-                    p.position
-                      a.thum-href(href='http://thumbtack.ru/', target='_blank') Тамтэк
-                      | , Директор, Омск
-                    .content.media-body
-                      article
-                        | Уважаемые студенты и старшеклассники, интересующиеся программированием и компьютерными технологиями. Я начал программировать в школе, в ВУЗе мое увлечение компьютерами и всем, что с ними связано, только окрепло. В то время, на заре Интернета, было сложно находить ответы на многие вопросы, поэтому хорошая книга и опытный наставник ценились на вес золота. Теперь у нас есть Интернет! Но как узнать, какой из ответов - правильный? Как отделить действительно ценный совет от форумного флуда? Цените возможность вживую пообщаться с ведущими специалистами лучших ИТ-компаний города. Время опытных наставников по-прежнему на вес золота :-)
-                  .opinion.media.js-opinion.hide
-                    img.photo.media-object(src='images/opinions/gordeev.jpg', width='145', alt='', height='145')
-                    p.name Вячеслав Гордеев
-                    p.position
-                      a.thum-href(href='http://www.a2design.ru/', target='_blank') А2 Дизайн
-                      | , Руководитель, Омск
-                    #wrap.content.media-body
-                      article.js-content
-                        | Вокруг айти-сферы крутится всё, программист — это одна, если не самая-самая перспективная профессия, и это отнюдь не преувеличение.
-                        | Так что успейте прыгнуть на этот поезд, который, при большом количестве работы, мотивации и желания, доставит вас туда, куда вы пожелаете. А пока, необходимо вливаться в технологии, узнавать новое с каждым днём. И данная конференция — отличное место для этого.
-                  .opinion.media.js-opinion.hide
-                    img.photo.media-object(src='images/opinions/rodionov.jpg', alt='', height='145')
-                    p.name Игорь Родионов
-                    p.position
-                      a.thum-href(href='http://sciencescape.org/', target='_blank') ScienceScape inc.
-                      | , Разработчик, Омск
-                    #wrap.content.media-body
-                      article.js-content
-                        | Готовитесь ли вы к поступлению или уже учитесь в ВУЗе - вы начали свою карьеру. Возможно вы не согласны, но это так. Задайте себе вопросы:
-                        br
-                        | "Насколько я вырос в профессиональном плане за прошлый год?"
-                        br
-                        | "Достаточный ли это темп для успешной работы после окончания ВУЗа?"
-                        br
-                        | "Могу ли я развиваться быстрее? Если да, то какие для этого есть возможности?"
-                        br
-                        | "Кем и где я смогу работать?"
-                        br
-                        | "Каково состояние и перспективы ИТ отрасли в мире, России и Омске?"
-                        br
-                        | "Действительно, ли это то, чем я хочу заниматься?"
-                        br
-                        | Если хоть один из этих вопросов вас волнует - посетите мероприятие.
-                        br
-                        | Эта конференция - день открытых дверей в ИТ-индустрию - возможность подняться над суетой и увидеть перспективу - подарок от нынешних профессионалов будущим. Потому, что именно с вами мы будем работать через несколько лет.
-                        br
-                        | Приходите познакомиться.
-                .headline.center-block.more-info.col-xs-12
-                  a.center-block.text-center(href='http://timeline.happydev.ru/', target='_blank')
-                    p Подробнее в блоге
-            .row
-              .footer.col-xs-12
-                p.text-center Организатор
-                .col-xs-12
-                  a.col-xs-12(href='http://7bits.ru/ru', target='_blank')
-                    img.center-block.img-responsive(src='images/7bits.png', alt='')
-                .col-xs-12.text-center.contacts
-                  p.text-center Звоните, пишите!
-                  .col-xs-12.col-sm-6
-                    p.text-center.col-xs-12 +7 (909) 535 00 73
-                    span Анна Тарасенко
-                  .col-xs-12.col-sm-6
-                    a(href='mailto:org@happydev.ru')
-                      p.text-center.col-xs-12.mail org@happydev.ru
-                    span.center-block
-                      | Мы готовы ответить
-                      | на любые вопросы.
-                .col-xs-12.text-center.sponsors
-                  a.col-xs-12(href='files/Спонсорское предложение Happydev-lite.pdf', target='_blank')
-                    p.text-center Спонсорское предложение
-                .col-xs-12.text-center.copyright
-                  a.col-xs-12(href='http://7bits.ru/ru', target='_blank')
-                    | &copy 7bits, 2014
-                script(src='scripts/all.js')
+              include ../blocks/talks.jade
+              include ../blocks/footer.jade
+              script(src='scripts/all.js')
+    .js-loader.overlay-loader
+      .js-loader-background.loader-background.color-flip
+      img.js-loader-icon.loader-icon.spinning-cog(src="cogs/cog01.svg" data-cog="cog01")

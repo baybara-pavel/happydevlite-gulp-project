@@ -1,0 +1,37 @@
+.header
+  .row.header-row
+    .share
+      // <p>Поделиться</p>
+      a.js-share-for-touch.js-tw-hover.js-tw-share.tw-share
+        .share-block.center-block
+          .share-counter
+            img.js-hide-on-hover(src='images/share-counter.png', alt='')
+            img.js-show-on-hover.hided(src='images/counter-tw.png', alt='')
+            .js-counter-hover.js-tw-counter.tw-counter
+              p.counter &nbsp
+          .share-logo.logo-tw.center-block
+            img.js-hide-on-hover(src='images/social-tw.png', alt='')
+            img.js-show-on-hover.hided(src='images/share-tw.png', alt='')
+      a.js-share-for-touch.js-vk-hover.js-vk-share.vk-share
+        .share-block.center-block
+          .share-counter
+            img.js-hide-on-hover(src='images/share-counter.png', alt='')
+            img.js-show-on-hover.hided(src='images/counter-vk.png', alt='')
+            .js-counter-hover.js-vk-counter.vk-counter
+              p.counter &nbsp
+          .share-logo.logo-vk.center-block
+            img.js-hide-on-hover(src='images/social-vk.png', alt='')
+            img.js-show-on-hover.hided(src='images/share-vk.png', alt='')
+    //
+      <div class="happy-dev-href pull-right">
+      <a href="http://timeline.happydev.ru/" target="_blank"><img src="" height="32" width="32" alt=""><span>Блог HappyDev-lite</span></a>
+      </div>
+    .logo.text-center
+      a(href='http://happydev-lite.ru/')
+        img.center-block(src='images/logo.png', alt='HappyDev logo')
+        p.event-title
+          span.happy-dev
+            | Happy
+            span Dev
+          span.lite lite
+        p.event-description IT-конференция для студентов и школьников
