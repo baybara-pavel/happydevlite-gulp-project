@@ -21,6 +21,7 @@ sourcemaps = require 'gulp-sourcemaps'
 uglify = require 'gulp-uglify'
 watch = require 'gulp-watch'
 cssImport = require 'gulp-cssimport'
+uncss = require 'gulp-uncss'
 
 path = 
   build:
@@ -109,6 +110,8 @@ gulp.task 'style:build', ->
     .pipe plumber()
     .pipe cssImport()
     .pipe prefixer()
+    .pipe uncss
+      html: ["#{path.build.html}index.html"]
     # .pipe csso()
   .pipe gulp.dest path.build.css
   .pipe gulp.dest path.build.css
