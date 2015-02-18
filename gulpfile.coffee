@@ -34,8 +34,8 @@ path =
     jade: 'src/templates/pages/*.jade'
     coffee: './src/assets/scripts/main.coffee'
     style:
-      main:'src/assets/styles/main.scss'
-      folder: 'src/assets/styles/main.scss'
+      main:'src/assets/styles/main.sass'
+      folder: 'src/assets/styles/'
     img: 'src/assets/images/**/*.*'
     fonts: 'src/assets/fonts/**/*.*'
     tmp:
@@ -44,14 +44,14 @@ path =
   watch:
     jade: 'src/templates/**/*.jade'
     coffee: 'src/assets/scripts/**/*.coffee'
-    style: 'src/assets/styles/**/*.scss'
+    style: 'src/assets/styles/**/*.sass'
     img: 'src/assets/images/**/*.*'
     fonts: 'src/assets/fonts/**/*.*'
   clean: './build/'
 
 server = 
   host: 'localhost'
-  port: '9000'
+  port: '8000'
 
 gulp.task 'clean', ->
   del path.clean
@@ -105,6 +105,7 @@ gulp.task 'style:build', ->
   .pipe do plumber
   # .pipe do sourcemaps.init
     .pipe sass
+      indentedSyntax: true
       sourceComments: 'map'
       includePaths : [path.src.style.folder]
     .pipe do prefixer
