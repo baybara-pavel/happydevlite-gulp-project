@@ -43,5 +43,8 @@
     "opn": "*",
     "vinyl-source-stream": "*",
     "wiredep": "*"
+  },
+  "dependencies": {
+    "gulp.spritesmith": "^2.6.0"
   }
 }

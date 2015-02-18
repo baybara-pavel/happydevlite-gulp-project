@@ -22,6 +22,7 @@ uglify = require 'gulp-uglify'
 watch = require 'gulp-watch'
 cssImport = require 'gulp-cssimport'
 uncss = require 'gulp-uncss'
+spritesmith = require 'gulp.spritesmith'
 
 path = 
   build:
@@ -110,8 +111,8 @@ gulp.task 'style:build', ->
     .pipe plumber()
     .pipe cssImport()
     .pipe prefixer()
-    .pipe uncss
-      html: ["#{path.build.html}index.html"]
+    # .pipe uncss
+    #   html: ["#{path.build.html}index.html"]
     # .pipe csso()
   .pipe gulp.dest path.build.css
   .pipe gulp.dest path.build.css
@@ -127,6 +128,16 @@ gulp.task 'image:build', ->
     interlaced: true
   .pipe gulp.dest path.build.img
   .pipe connect.reload()
+
+gulp.task 'sprite', ->
+  spriteData = 
+    gulp.src('./src/assets/images/sprite/*.*') 
+      .pipe spritesmith
+        imgName: 'sprite.png'
+        cssName: 'sprite.sass'
+        
+  spriteData.img.pipe(gulp.dest('./src/assets/images/')) 
+  spriteData.css.pipe(gulp.dest('./src/assets/styles/partials/'))
 
 gulp.task 'fonts:build', ->
   gulp.src path.src.fonts
